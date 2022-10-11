@@ -1,0 +1,302 @@
+libtest2-suite-perl (0.000141-1) unstable; urgency=medium
+
+  * Import upstream version 0.000141.
+  * Update years of upstream and packaging copyright.
+  * Declare compliance with Debian Policy 4.6.0.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 22 Aug 2021 21:41:44 +0200
+
+libtest2-suite-perl (0.000139-1) unstable; urgency=medium
+
+  * Import upstream version 0.000139.
+  * Declare compliance with Debian Policy 4.5.1.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 16 Dec 2020 20:37:18 +0100
+
+libtest2-suite-perl (0.000138-1) unstable; urgency=medium
+
+  * Import upstream version 0.000138.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 23 Oct 2020 23:32:33 +0200
+
+libtest2-suite-perl (0.000136-1) unstable; urgency=medium
+
+  * Import upstream version 0.000136.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 07 Oct 2020 17:13:34 +0200
+
+libtest2-suite-perl (0.000135-1) unstable; urgency=medium
+
+  * Import upstream version 0.000135.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 20 Aug 2020 03:40:36 +0200
+
+libtest2-suite-perl (0.000132-1) unstable; urgency=medium
+
+  * Import upstream version 0.000132.
+  * Bump versioned (build) dependency on libtest-simple-perl.
+  * Update lintian overrides (renamed tag).
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 08 Aug 2020 00:14:56 +0200
+
+libtest2-suite-perl (0.000130-1) unstable; urgency=medium
+
+  * Import upstream version 0.000130.
+  * Set Rules-Requires-Root: no.
+  * Bump debhelper-compat to 13.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 02 Jun 2020 23:10:11 +0200
+
+libtest2-suite-perl (0.000129-1) unstable; urgency=medium
+
+  * Import upstream version 0.000129.
+  * Update years of upstream and packaging copyright.
+  * Declare compliance with Debian Policy 4.5.0.
+  * Set upstream metadata fields: Bug-Submit, Repository, Repository-
+    Browse.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 03 Feb 2020 17:25:16 +0100
+
+libtest2-suite-perl (0.000127-1) unstable; urgency=medium
+
+  * Import upstream version 0.000127.
+  * Declare compliance with Debian Policy 4.4.1.
+  * Remove obsolete fields Name, Contact from debian/upstream/metadata.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 02 Nov 2019 02:16:42 +0100
+
+libtest2-suite-perl (0.000126-1) unstable; urgency=medium
+
+  * Import upstream version 0.000126.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 22 Sep 2019 15:11:41 +0200
+
+libtest2-suite-perl (0.000125-1) unstable; urgency=medium
+
+  * Import upstream version 0.000125.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 21 Aug 2019 18:30:15 +0200
+
+libtest2-suite-perl (0.000124-1) unstable; urgency=medium
+
+  * Import upstream version 0.000124.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 17 Aug 2019 17:41:44 +0200
+
+libtest2-suite-perl (0.000122-1) unstable; urgency=medium
+
+  * Import upstream version 0.000122.
+  * Annotate test-only build dependencies with <!nocheck>.
+  * Declare compliance with Debian Policy 4.4.0.
+  * Update alternative (build) dependencies.
+  * Bump debhelper-compat to 12.
+  * debian/watch: use uscan version 4.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 16 Jul 2019 10:49:16 -0300
+
+libtest2-suite-perl (0.000118-1) unstable; urgency=medium
+
+  * Import upstream version 0.000118.
+  * Update years of upstream and packaging copyright.
+  * Update (build) dependencies.
+  * Declare compliance with Debian Policy 4.3.0.
+  * Bump debhelper compatibility level to 11.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 20 Jan 2019 05:13:59 +0100
+
+libtest2-suite-perl (0.000117-1) unstable; urgency=medium
+
+  * Import upstream version 0.000117.
+
+ -- gregor herrmann <gregoa@debian.org>  Wed, 05 Dec 2018 21:22:26 +0100
+
+libtest2-suite-perl (0.000116-1) unstable; urgency=medium
+
+  * Import upstream version 0.000116.
+  * Declare compliance with Debian Policy 4.2.1.
+  * Let cme update an alternave versioned (build) dependency.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 01 Dec 2018 18:41:05 +0100
+
+libtest2-suite-perl (0.000115-1) unstable; urgency=medium
+
+  * Import upstream version 0.000115.
+  * Declare compliance with Debian Policy 4.1.5.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 16 Jul 2018 00:31:41 +0200
+
+libtest2-suite-perl (0.000114-2) unstable; urgency=medium
+
+  * debian/control: fix invalid alternative (build) dependency on
+    libtest-simple-perl.
+    Thanks to Niko Tyni for the bug report. (Closes: #900702)
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 03 Jun 2018 19:57:37 +0200
+
+libtest2-suite-perl (0.000114-1) unstable; urgency=medium
+
+  * Import upstream version 0.000114.
+  * Update years of upstream copyright.
+  * Update build dependencies.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 06 May 2018 14:08:34 +0200
+
+libtest2-suite-perl (0.000111-1) unstable; urgency=medium
+
+  * Import upstream version 0.000111.
+  * Declare compliance with Debian Policy 4.1.4.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 14 Apr 2018 22:17:12 +0200
+
+libtest2-suite-perl (0.000108-1) unstable; urgency=medium
+
+  * Import upstream version 0.000108.
+  * Update versioned (build) dependency on Test2.
+  * Drop spelling.patch, merged upstream.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 11 Mar 2018 23:41:44 +0100
+
+libtest2-suite-perl (0.000102-1) unstable; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * Update Vcs-* headers for switch to salsa.debian.org
+
+  [ gregor herrmann ]
+  * Import upstream version 0.000102.
+  * Drop debian/libtest2-suite-perl.docs, TODO is gone.
+  * Add a patch to fix spelling mistakes in the POD.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 04 Mar 2018 15:14:41 +0100
+
+libtest2-suite-perl (0.000100-1) unstable; urgency=medium
+
+  [ Damyan Ivanov ]
+  * declare conformance with Policy 4.1.3 (no changes needed)
+
+  [ gregor herrmann ]
+  * Import upstream version 0.000100.
+  * Update years of upstream and packaging copyright.
+  * Bump debhelper compatibility level to 10.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 19 Feb 2018 20:00:25 +0100
+
+libtest2-suite-perl (0.000097-2) unstable; urgency=medium
+
+  * Add Breaks/Replaces/Provides on libtest2-asyncsubtest-perl and
+    libtest2-workflow-perl. The respective modules have been merged into
+    Test2-Suite.
+    Thanks to ci.debian.net and Niko Tyni for noticing & reporting.
+    (Closes: #885541)
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 28 Dec 2017 14:37:20 +0100
+
+libtest2-suite-perl (0.000097-1) unstable; urgency=medium
+
+  [ Damyan Ivanov ]
+  * declare conformance with Policy 4.1.2 (no changes needed)
+
+  [ gregor herrmann ]
+  * Import upstream version 0.000097.
+  * Update (build) dependencies.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 26 Dec 2017 00:50:16 +0100
+
+libtest2-suite-perl (0.000084-1) unstable; urgency=medium
+
+  * Import upstream version 0.000084.
+  * Update years of upstream copyright.
+  * Update (build) dependencies.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 19 Nov 2017 21:51:58 +0100
+
+libtest2-suite-perl (0.000083-1) unstable; urgency=medium
+
+  * Drop debian/tests/pkg-perl/smoke-tests, handled by pkg-perl-
+    autopkgtest now.
+  * Import upstream version 0.000083.
+  * Update (build) dependencies.
+  * Declare compliance with Debian Policy 4.1.1.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 02 Nov 2017 00:35:56 +0100
+
+libtest2-suite-perl (0.000072-1) unstable; urgency=medium
+
+  * Import upstream version 0.000072.
+  * Declare compliance with Debian Policy 4.0.0.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 08 Jul 2017 16:14:52 +0200
+
+libtest2-suite-perl (0.000070-1) unstable; urgency=medium
+
+  * Import upstream versions 0.000065, 0.000067, 0.000070.
+  * Update (build) dependencies.
+  * Update years of upstream and packaging copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 17 Jun 2017 22:05:56 +0200
+
+libtest2-suite-perl (0.000063-1) unstable; urgency=medium
+
+  * Team upload.
+  * Import upstream version 0.000063
+  * debian/control: Update {Build-}Depends.
+
+ -- Angel Abad <angel@debian.org>  Sun, 18 Dec 2016 11:14:47 +0100
+
+libtest2-suite-perl (0.000061-1) unstable; urgency=medium
+
+  * Team upload.
+  * Import upstream version 0.000061
+
+ -- Angel Abad <angel@debian.org>  Sun, 27 Nov 2016 21:13:21 +0100
+
+libtest2-suite-perl (0.000060-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream version 0.000060
+  * debian/copyright: Update years.
+
+ -- Angel Abad <angel@debian.org>  Wed, 12 Oct 2016 19:01:54 +0200
+
+libtest2-suite-perl (0.000058-1) unstable; urgency=medium
+
+  * Import upstream version 0.000058.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 04 Sep 2016 17:40:33 +0200
+
+libtest2-suite-perl (0.000055-1) unstable; urgency=medium
+
+  * Import upstream version 0.000055.
+  * Drop spelling.patch, merged upstream.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 06 Aug 2016 16:05:04 +0200
+
+libtest2-suite-perl (0.000054-1) unstable; urgency=medium
+
+  * Upload to unstable.
+  * Import upstream version 0.000054.
+  * Add a patch to fix the spelling in the POD.
+  * Add a lintian override for a false positive spelling error.
+  * autopkgtest: enable more smoke tests.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 30 Jul 2016 17:28:51 +0200
+
+libtest2-suite-perl (0.000052-1) experimental; urgency=medium
+
+  * Import upstream version 0.000052.
+  * Add (build) dependency on libimporter-perl.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 24 Jul 2016 14:14:45 +0200
+
+libtest2-suite-perl (0.000048-1) experimental; urgency=medium
+
+  * debian/copyright: add section about lib/Test2/Compare/Bag.pm.
+    Thanks to lamby for the pointer.
+  * Import upstream version 0.000048.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 09 Jul 2016 16:43:46 +0200
+
+libtest2-suite-perl (0.000042-1) experimental; urgency=low
+
+  * Initial release (closes: #829112).
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 01 Jul 2016 15:24:46 +0200
