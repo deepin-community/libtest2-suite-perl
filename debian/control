@@ -5,14 +5,12 @@ Section: perl
 Testsuite: autopkgtest-pkg-perl
 Priority: optional
 Build-Depends: debhelper-compat (= 13)
-Build-Depends-Indep: libimporter-perl <!nocheck>,
+Build-Depends-Indep: libjson-maybexs-perl <!nocheck>,
                      libmodule-pluggable-perl <!nocheck>,
-                     libscope-guard-perl <!nocheck>,
-                     libsub-info-perl <!nocheck>,
                      libterm-table-perl <!nocheck>,
-                     libtest-simple-perl (>= 1.302176) <!nocheck>,
+                     libtest-simple-perl <!nocheck>,
                      perl
-Standards-Version: 4.6.0
+Standards-Version: 4.7.0
 Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libtest2-suite-perl
 Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libtest2-suite-perl.git
 Homepage: https://metacpan.org/release/Test2-Suite
@@ -22,18 +20,9 @@ Package: libtest2-suite-perl
 Architecture: all
 Depends: ${misc:Depends},
          ${perl:Depends},
-         libimporter-perl,
-         libmodule-pluggable-perl,
-         libscope-guard-perl,
-         libsub-info-perl,
          libterm-table-perl,
-         libtest-simple-perl (>= 1.302176)
-Breaks: libtest2-asyncsubtest-perl (<< 0.000020+),
-        libtest2-workflow-perl (<< 0.000018+)
-Provides: libtest2-asyncsubtest-perl,
-          libtest2-workflow-perl
-Replaces: libtest2-asyncsubtest-perl (<< 0.000020+),
-          libtest2-workflow-perl (<< 0.000018+)
+         libtest-simple-perl
+Recommends: libmodule-pluggable-perl
 Description: set of tools built upon the Test2 framework
  Test2::Suite contains a rich set of tools, plugins, bundles, etc. built upon
  the Test2 testing library. If you are interested in writing tests this is the

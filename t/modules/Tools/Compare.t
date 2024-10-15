@@ -1,7 +1,11 @@
 use Test2::Bundle::Extended -target => 'Test2::Tools::Compare';
 use Test2::Util::Table();
 
-BEGIN { $ENV{TABLE_TERM_SIZE} = 80 }
+BEGIN {
+    $ENV{TABLE_TERM_SIZE} = 80;
+    $ENV{T2_AUTO_DUMP}    = 0;
+    $ENV{T2_AUTO_DEPARSE} = 0;
+}
 
 {
     package My::Boolean;
@@ -545,6 +549,46 @@ subtest number => sub {
                 fail_table(
                     header => [qw/GOT OP CHECK LNs/],
                     rows   => [[qw/xxx != 22.0/, $line]],
+                );
+
+                end;
+            },
+            "Got events"
+        );
+    }
+
+    $line = __LINE__+1;
+    my @tests = (
+        {check => number_lt(25), failval => 30, op => '<',  failop => '>=', checkval => 25},
+        {check => number_le(25), failval => 30, op => '<=', failop => '>',  checkval => 25},
+        {check => number_ge(15), failval => 10, op => '>=', failop => '<',  checkval => 15},
+        {check => number_gt(15), failval => 10, op => '>',  failop => '<=', checkval => 15},
+    );
+
+    for my $test (@tests) {
+        my $check= $test->{check};
+
+        is($check->lines, [$line], "Got line number");
+
+        $events = intercept {
+            is(20,                $check, "pass");
+            is($test->{failval},  $check, "fail");
+            is(20,               !$check, "fail");
+        };
+
+        like(
+            $events,
+            array {
+                event Ok => {pass => 1};
+
+                fail_table(
+                    header => [qw/GOT OP CHECK LNs/],
+                    rows   => [[@{$test}{qw/ failval op checkval /}, $line]],
+                );
+
+                fail_table(
+                    header => [qw/GOT OP CHECK LNs/],
+                    rows   => [[20, @{$test}{qw/ failop checkval /}, $line]],
                 );
 
                 end;
@@ -1794,5 +1838,124 @@ subtest all_keys_and_vals => sub {
     );
 };
 
+{
+    package Local::MockDumper;
+    use Data::Dumper ();
+    no warnings 'once';
+    our @ISA = 'Data::Dumper';
+    sub Dump {
+        my $self = shift;
+        our @args = @_;
+        our $deparse = $Data::Dumper::Deparse;
+        return $self->SUPER::Dump(@_);
+    }
+}
+
+subtest 'T2_AUTO_DUMP and T2_AUTO_DEPARSE' => sub {
+
+    subtest 'Trivial example where tests pass' => sub {
+        local @Local::MockDumper::args = 'NOT CALLED';
+        local $Local::MockDumper::deparse = 'NOT CALLED';
+        my $events = intercept {
+            local $ENV{T2_AUTO_DUMP} = 'Local::MockDumper';
+            local $ENV{T2_AUTO_DEPARSE} = 0;
+            is( [], [], 'ok' );
+        };
+        is(
+            $events,
+            array {
+                event Ok => sub {};
+                end;
+            },
+            'MockDumper not called because test passed',
+        );
+    };
+
+    subtest 'Trivial example where test fails but autodump is not in use' => sub {
+        local @Local::MockDumper::args = 'NOT CALLED';
+        local $Local::MockDumper::deparse = 'NOT CALLED';
+        my $events = intercept {
+            local $ENV{T2_AUTO_DUMP} = 0;
+            local $ENV{T2_AUTO_DEPARSE} = 0;
+            is( {}, [], 'ok' );
+        };
+        is(
+            $events,
+            array {
+                event Fail => sub {};
+                end;
+            },
+            'MockDumper not called because autodump not enabled',
+        );
+        is(
+            \@Local::MockDumper::args,
+            ['NOT CALLED'],
+            'MockDumper did not get any arguments'
+        );
+        is(
+            $Local::MockDumper::deparse,
+            'NOT CALLED',
+            '$Deparse was not altered'
+        );
+    };
+
+    subtest 'Simple example where test fails and gets autodumped' => sub {
+        local @Local::MockDumper::args = 'NOT CALLED';
+        local $Local::MockDumper::deparse = 'NOT CALLED';
+        my $events = intercept {
+            local $ENV{T2_AUTO_DUMP} = 'Local::MockDumper';
+            local $ENV{T2_AUTO_DEPARSE} = 0;
+            is( {}, [], 'ok' );
+        };
+        is(
+            $events,
+            array {
+                event Fail => sub {};
+                event Diag => sub {
+                    call message => match qr/\$GOT/;
+                };
+                end;
+            },
+            'MockDumper called because test failed',
+        );
+        is(
+            \@Local::MockDumper::args,
+            [[{}], ['GOT']],
+            'MockDumper was passed the correct arguments'
+        );
+        is(
+            $Local::MockDumper::deparse,
+            F(),
+            '$Deparse was false'
+        );
+    };
+
+    subtest 'Simple example where test fails and gets autodumped' => sub {
+        local @Local::MockDumper::args = 'NOT CALLED';
+        local $Local::MockDumper::deparse = 'NOT CALLED';
+        my $events = intercept {
+            local $ENV{T2_AUTO_DUMP} = 'Local::MockDumper';
+            local $ENV{T2_AUTO_DEPARSE} = 1;
+            is( sub { "XYZ" }, [], 'ok' );
+        };
+        is(
+            $events,
+            array {
+                event Fail => sub {};
+                event Diag => sub {
+                    call message => match qr/\$GOT/;
+                    call message => match qr/XYZ/;
+                };
+                end;
+            },
+            'MockDumper called because test failed',
+        );
+        is(
+            $Local::MockDumper::deparse,
+            T(),
+            '$Deparse was true'
+        );
+    };
+};
 
 done_testing;
