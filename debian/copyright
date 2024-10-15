@@ -4,7 +4,7 @@ Upstream-Contact: Chad Granum <exodist@cpan.org>
 Upstream-Name: Test2-Suite
 
 Files: *
-Copyright: 2018-2021, Chad Granum <exodist@cpan.org>
+Copyright: 2018-2024, Chad Granum <exodist@cpan.org>
 License: Artistic or GPL-1+
 
 Files: lib/Test2/Compare/Bag.pm
@@ -12,9 +12,14 @@ Copyright: 2018, Chad Granum <exodist@cpan.org>
  2018, Gianni Ceccarelli <dakkar@thenautilus.net>
 License: Artistic or GPL-1+
 
+Files: lib/Test2/Util/Guard.pm
+Copyright: 2005-2015, chocolateboy
+ 2023, Chad Granum <exodist7@gmail.com>
+License: Artistic or GPL-1+
+
 Files: debian/*
 Copyright: 2016, Angel Abad <angel@debian.org>
- 2016-2021, gregor herrmann <gregoa@debian.org>
+ 2016-2024, gregor herrmann <gregoa@debian.org>
 License: Artistic or GPL-1+
 
 License: Artistic

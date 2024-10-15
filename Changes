@@ -1,3 +1,104 @@
+0.000163  2024-06-05 08:11:27-07:00 America/Los_Angeles
+
+    - Documentation fixes
+
+0.000162  2024-04-25 14:57:23+01:00 Europe/Lisbon
+
+    - Fix #292 and #270
+
+0.000161  2024-04-25 12:05:32+01:00 Europe/Lisbon
+
+    - Fix #289: some checks could leak across array bounds
+    - Fix #285: Mocking around missing symbols
+
+0.000160  2024-04-25 11:18:36+01:00 Europe/Lisbon
+
+    - Fix #291: done_testing under AsyncSubtest does not make sense
+    - Fix #275: prototypes for around/after/before
+    - Fix #288: Merge PR for #275
+    - Fix #290: Extra docs for srand
+
+0.000159  2023-10-25 14:09:23-07:00 America/Los_Angeles
+
+    - Document that diag() intentionally returns false, and add a `return 0`
+
+0.000158  2023-10-22 22:05:42-07:00 America/Los_Angeles
+
+    - Mark Workflow-Acceptance.t as AUTHOR_TESTING
+
+0.000157  2023-10-22 21:26:49-07:00 America/Los_Angeles
+
+    - Fix #280: Document --no_srand option in Test2::V0
+    - Fix #276: Document bool() import in Test2::V0
+    - Fix #279: Merged fix for VMS test issues
+    - Fix #277: Merged POD tweaks
+
+0.000156  2023-09-13 15:11:52-07:00 America/Los_Angeles
+
+    - Fix typo in POD for Test2::Util::Importer
+
+0.000155  2023-04-28 08:28:42-07:00 America/Los_Angeles
+
+    - Fix #247
+    - Fix changes file
+
+0.000154  2023-04-28 05:57:58-07:00 America/Los_Angeles
+
+    - Fix 00-report.t
+
+0.000153  2023-04-27 15:27:32-07:00 America/Los_Angeles
+
+    - Fix broken call to plugins
+
+0.000152  2023-04-27 02:52:44-07:00 America/Los_Angeles
+
+    - Inline Importer.pm for core support
+
+0.000151  2023-04-27 02:35:37-07:00 America/Los_Angeles
+
+    - The following are all in hopes of getting Test2:Suite into core.
+    - Make Module::Pluggable optional
+    - Inline Scope::Guard
+    - Inline Sub::Info
+    - Do not recommend Sub::Name
+
+0.000150  2023-03-21 08:25:21-07:00 America/Los_Angeles
+
+    - Do not index Devel::MAT::Dumper
+
+0.000149  2023-03-21 06:44:50-07:00 America/Los_Angeles
+
+    - Fix warning when Devel::MAT::Dumper is installed and -w is used
+
+0.000148  2023-03-05 14:59:45-08:00 America/Los_Angeles
+
+    - Fixes for refcount stuff
+
+0.000147  2023-03-04 11:42:59-08:00 America/Los_Angeles
+
+    - Add refcount tools, and include in ::V0
+
+0.000146  2023-03-04 11:08:10-08:00 America/Los_Angeles
+
+    - Add T2_AUTO_DUMP and T2_AUTO_DEPARSE env vars
+
+0.000145  2022-03-04 15:10:09-08:00 America/Los_Angeles
+
+    - Fix subtest times to be hi-res
+
+0.000144  2021-12-03 13:17:19-08:00 America/Los_Angeles
+
+    - Add void context warning for dies and lives
+
+0.000143  2021-12-01 11:20:03-08:00 America/Los_Angeles
+
+    - Add stringification option for custom compare checks
+
+0.000142  2021-11-15 14:06:34-08:00 America/Los_Angeles
+
+    - Fix deprecation diagnostics
+    - Fix older perls by removing //=
+
 0.000141  2021-07-26 12:15:34-07:00 America/Los_Angeles
 
     - Add start and stop stamps to async subtest

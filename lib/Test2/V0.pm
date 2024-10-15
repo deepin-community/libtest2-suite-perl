@@ -2,9 +2,9 @@ package Test2::V0;
 use strict;
 use warnings;
 
-use Importer;
+use Test2::Util::Importer;
 
-our $VERSION = '0.000141';
+our $VERSION = '0.000163';
 
 use Carp qw/croak/;
 
@@ -29,6 +29,7 @@ use Test2::Tools::Compare qw{
     is like isnt unlike
     match mismatch validator
     hash array bag object meta meta_check number float rounded within string subset bool check_isa
+    number_lt number_le number_ge number_gt
     in_set not_in_set check_set
     item field call call_list call_hash prop check all_items all_keys all_vals all_values
     etc end filter_items
@@ -43,7 +44,7 @@ use Test2::Tools::Warnings qw{
 
 use Test2::Tools::ClassicCompare qw/cmp_ok/;
 
-use Importer 'Test2::Tools::Subtest' => (
+use Test2::Util::Importer 'Test2::Tools::Subtest' => (
     subtest_buffered => { -as => 'subtest' },
 );
 
@@ -53,6 +54,7 @@ use Test2::Tools::Exports   qw/imported_ok not_imported_ok/;
 use Test2::Tools::Ref       qw/ref_ok ref_is ref_is_not/;
 use Test2::Tools::Mock      qw/mock mocked/;
 use Test2::Tools::Exception qw/try_ok dies lives/;
+use Test2::Tools::Refcount  qw/is_refcount is_oneref refcount/;
 
 our @EXPORT = qw{
     ok pass fail diag note todo skip
@@ -79,12 +81,15 @@ our @EXPORT = qw{
     is like isnt unlike
     match mismatch validator
     hash array bag object meta meta_check number float rounded within string subset bool check_isa
+    number_lt number_le number_ge number_gt
     in_set not_in_set check_set
     item field call call_list call_hash prop check all_items all_keys all_vals all_values
     etc end filter_items
     T F D DF E DNE FDNE U L
     event fail_events
     exact_ref
+
+    is_refcount is_oneref refcount
 };
 
 my $SRAND;
@@ -127,7 +132,7 @@ sub import {
 
     croak "Unknown option(s): " . join(', ', sort keys %options) if keys %options;
 
-    Importer->import_into($class, $caller, @exports);
+    Test2::Util::Importer->import_into($class, $caller, @exports);
 }
 
 1;
@@ -197,7 +202,7 @@ The following are both identical:
 
     use Test2::V0 ':DEFAULT', '!ok', ok => {-as => 'my_ok'};
 
-This bundle uses L<Importer> for exporting, as such you can use any arguments
+This bundle uses L<Test2::Util::Importer> for exporting, as such you can use any arguments
 it accepts.
 
 Explanation:
@@ -255,6 +260,14 @@ This will set the random seed to today's date. You can provide an alternate seed
 with the C<-srand> import option:
 
     use Test2::V0 -srand => 1234;
+
+You can also disable this behavior:
+
+    use Test2::V0 -no_srand => 1;
+
+B<Note> When srand is on (default) it can cause problems with things like
+L<File::Temp> which will end up attempting the same "random" filenames for
+every test process started on a given day (or sharing the same seed).
 
 =head2 UTF8
 
@@ -403,6 +416,8 @@ See L<Test2::Tools::Compare>.
 
 =item $check = string($str)
 
+=item $check = bool($bool)
+
 =item $check = check_isa($class_name)
 
 =item $check = in_set(@things)
@@ -528,6 +543,18 @@ See L<Test2::Tools::Ref>.
 =item ref_is($got, $want)
 
 =item ref_is_not($got, $do_not_want)
+
+=back
+
+See L<Test2::Tools::Refcount>.
+
+=over 4
+
+=item is_refcount($ref, $count, $description)
+
+=item is_oneref($ref, $description)
+
+=item $count = refcount($ref)
 
 =back
 

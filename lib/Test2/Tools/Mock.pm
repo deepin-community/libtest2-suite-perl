@@ -11,7 +11,7 @@ use Test2::Mock();
 
 use base 'Exporter';
 
-our $VERSION = '0.000141';
+our $VERSION = '0.000163';
 
 our @CARP_NOT = (__PACKAGE__, 'Test2::Mock');
 our @EXPORT = qw/mock mocked/;
@@ -35,7 +35,7 @@ sub add_handler {
     croak "Must specify a package for the mock handler"
         unless $for;
 
-    croak "Handlers must be code referneces (got: $code)"
+    croak "Handlers must be code references (got: $code)"
         unless $code && ref($code) eq 'CODE';
 
     push @{$HANDLERS{$for}} => $code;
